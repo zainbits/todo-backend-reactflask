@@ -1,0 +1,10 @@
+.block__title {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  background: #6d9886;
+  border-radius: 40px 40px 0 0;
+  margin: 6px 10px 3px 0;
+  height: 10vh;
+  font-size: 32px;
+}

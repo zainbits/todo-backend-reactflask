@@ -12,14 +12,16 @@ function App() {
             <p>TODO - Web App{`\n`}Made in react</p>
           </div>
         </div>
-          <Switch>
-            <Route exact path="/">
-              <LoginPage />
-            </Route>
-            <Route path="/getallusers">
-              <AllUsers />
-            </Route>
-          </Switch>
+        <div class="col-md-8 block--right">
+            <Switch>
+              <Route exact path="/">
+                <LoginPage />
+              </Route>
+              <Route path="/getallusers">
+                <AllUsers />
+              </Route>
+            </Switch>
+          </div>
       </div>
     </div>
   );

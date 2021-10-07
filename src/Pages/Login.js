@@ -1,49 +1,59 @@
 import {useState} from 'react'
+import {encode} from "base-64"
+import {TitleBar} from '../Components/RightTitleBar'
+import {MagicSlate} from '../Components/MagicSlate'
 import "bootstrap/dist/css/bootstrap.min.css";
+import '../stylesheets/RightSide/TitleBar.css'
+import '../stylesheets/RightSide/RightLogin.css'
+import API from '../api'
 
 
 export const LoginPage = () => {
 
-    const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     
-    const handleLogin = (event)=> {
+    const handleLogin = async (event)=> {
       event.preventDefault()
-      console.log(email,password)
+      console.log(username,password)
+
+      const opts = {
+        headers: {
+          "Authorization": "Basic " + encode(`${username}:${password}`)
+        }
+      }
+
+      let response = await API.get("login", opts)
+      console.log(response.data.token)
+      localStorage.setItem("token", response.data.token)
     }
 
     return (
         
-        <div class="col-md-8 RightPane">
-          <div class="RightInner in1">
-            <nav></nav>
-          </div>
-          <div class="RightInner in2">
-            <div class="card p-5">
+        <>
+          <TitleBar title="Login" />
+          <MagicSlate >
+            <div class="card p-5 in2">
               <div class="card-body">
                 <form onSubmit={handleLogin}>
                   <div class="form-group">
                     <h2>Login</h2>
-                    <label for="exampleInputEmail1">Email address</label>
+                    <label for="username">Email address</label>
                     <input
-                      type="email"
+                      type="text"
                       class="form-control"
-                      id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
-                      placeholder="Enter email"
-                      value={email}
-                      onChange={e => {setEmail(e.target.value)}}
+                      id="username"
+                      placeholder="Enter username"
+                      value={username}
+                      onChange={e => {setUsername(e.target.value)}}
                     />
-                    <small id="emailHelp" class="form-text text-muted">
-                      We'll never share your email with anyone else.
-                    </small>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
+                    <label for="password">Password</label>
                     <input
                       type="password"
                       class="form-control"
-                      id="exampleInputPassword1"
+                      id="password"
                       placeholder="Password"
                       value={password}
                       onChange={e => setPassword(e.target.value)}
@@ -53,19 +63,19 @@ export const LoginPage = () => {
                     <input
                       type="checkbox"
                       class="form-check-input"
-                      id="exampleCheck1"
+                      id="remember"
                     />
-                    <label class="form-check-label" for="exampleCheck1">
+                    <label class="form-check-label" for="remember">
                       Remember me
                     </label>
                   </div>
                   <button type="submit" class="btn btn-primary">
-                    Submit
+                    Login
                   </button>
                 </form>
               </div>
             </div>
-          </div>
-        </div>
+          </MagicSlate>
+        </>
     )
 }
