@@ -29,6 +29,7 @@
 
 .block__slate--dashboard {
   display: flex;
+  justify-content: center;
   background: var(--page);
   color: black;
   font-size: 20px;
