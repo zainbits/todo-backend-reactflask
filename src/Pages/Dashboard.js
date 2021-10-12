@@ -40,7 +40,7 @@ export const Dashboard = () => {
               });
             return { ...todo, complete: !todo.complete };
           } else {
-            return { ...todo };
+            return {...todo};
           }
         });
 
@@ -87,7 +87,6 @@ export const Dashboard = () => {
     <>
       <TitleBar title="Dashboard" />
       <MagicSlate className="block__slate--dashboard">
-        <div>
           {todos.length !== 0 &&
             todos.map((item) => {
               return (
@@ -127,7 +126,6 @@ export const Dashboard = () => {
                 </Card>
               );
             })}
-        </div>
         <button onClick={addTodo} className="block__add--bottomRight">
           +
         </button>

@@ -35,6 +35,8 @@
   height: 90vh;
   margin: 3px 10px 6px 0;
   padding: 20px;
+  flex-wrap: wrap;
+  overflow: scroll;
 }
 
 @media screen and (max-width: 768px) {
