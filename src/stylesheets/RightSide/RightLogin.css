@@ -1,12 +1,11 @@
 .in2 {
   border-radius: 0 0 40px 40px;
   background: var(--page);
-  height: 88vh;
   color: var(--background);
   margin: 3px 10px 6px 0;
-}
-
-.in2 {
+  height: 400px;
+  display: flex;
+  flex-direction: column;
   border-radius: 40px;
   background: #6d9886;
   box-shadow: 0px 30px 110px 1px var(--background);

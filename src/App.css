@@ -1,3 +1,7 @@
+#root {
+  display: flex;
+}
+
 .LeftPane {
   display: flex;
   align-items: center;
@@ -5,42 +9,39 @@
   font-size: 32px;
   height: 100vh;
   text-align: center;
-  width:100%;
+  width: 20vw;
   white-space: pre-wrap;
-  background: var(--background); 
+  background: var(--background);
   color: var(--page);
 }
 
 .block--right {
+  display: flex;
+  flex-direction: column;
   height: 100vh;
-  width:100%;
+  width: 80vw;
   background: var(--background);
 }
 
-.in1 {
-  border-radius: 40px 40px 0 0;
-  margin: 6px 10px 3px 0;
-  height: 10vh;
-}
-
-.in2 {
-  border-radius: 0 0 40px 40px;
-  background: var(--page);
-  height: 88vh;
-  margin: 3px 10px 6px 0;
-}
-
 @media screen and (max-width: 768px) {
+  #root {
+    flex-direction: column;
+  }
+
   .LeftPane {
     font-size: 24px;
     height: 10vh;
+    width: 100vw;
   }
-  .LeftPane p {
 
+  .LeftPane p {
     margin-bottom: 0;
   }
-  .RightPane {
+
+  .block--right {
+    width: 100vw;
     height: 90vh;
+    overflow: hidden;
   }
 
   .in2 {
