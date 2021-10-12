@@ -2,6 +2,7 @@ import {useState} from 'react'
 import {encode} from "base-64"
 import {TitleBar} from '../Components/RightTitleBar'
 import {MagicSlate} from '../Components/MagicSlate'
+import { useHistory } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../stylesheets/RightSide/TitleBar.css'
 import '../stylesheets/RightSide/RightLogin.css'
@@ -10,8 +11,11 @@ import API from '../api'
 
 export const LoginPage = () => {
 
+    let history = useHistory()
+
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [loginError, setLoginError] = useState(null)
     
     const handleLogin = async (event)=> {
       event.preventDefault()
@@ -23,53 +27,62 @@ export const LoginPage = () => {
         }
       }
 
-      let response = await API.get("login", opts)
-      console.log(response.data.token)
-      localStorage.setItem("token", response.data.token)
+      try {
+        let response = await API.get("login", opts)
+        console.log(response.data)
+        localStorage.setItem("token", response.data.token)
+        history.push('/dashboard')
+      }
+      catch (err) {
+        if (err.response.status === 401){
+            setLoginError('Invalid Username or Password')
+        }
+      }
     }
 
     return (
         
         <>
           <TitleBar title="Login" />
-          <MagicSlate >
-            <div class="card p-5 in2">
-              <div class="card-body">
+          <MagicSlate className="block__slate">
+            <div className="card p-5 in2">
+              <div className="card-body">
                 <form onSubmit={handleLogin}>
-                  <div class="form-group">
+                  <div className="form-group">
                     <h2>Login</h2>
-                    <label for="username">Email address</label>
+                    <label htmlFor="username">Email address</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="username"
                       placeholder="Enter username"
                       value={username}
                       onChange={e => {setUsername(e.target.value)}}
                     />
                   </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
+                  <div className="form-group">
+                    <label htmlFor="password">Password</label>
                     <input
                       type="password"
-                      class="form-control"
+                      className="form-control"
                       id="password"
                       placeholder="Password"
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                     />
                   </div>
-                  <div class="form-group form-check">
+                  <div className="form-group form-check">
                     <input
                       type="checkbox"
-                      class="form-check-input"
+                      className="form-check-input"
                       id="remember"
                     />
-                    <label class="form-check-label" for="remember">
+                    <label className="form-check-label" htmlFor="remember">
                       Remember me
                     </label>
                   </div>
-                  <button type="submit" class="btn btn-primary">
+                  <div style={{color: '#DF362D'}}>{loginError}</div>
+                  <button type="submit" className="btn btn-primary">
                     Login
                   </button>
                 </form>

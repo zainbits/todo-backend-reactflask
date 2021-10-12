@@ -1,11 +1,11 @@
 import '../stylesheets/RightSide/MagicSlate.css'
 
 
-export const MagicSlate = (props, className) => {
+export const MagicSlate = ({children, className}) => {
     return (
         <>
-            <div className="block__slate">
-                {props.children}
+            <div className={className}>
+                {children}
             </div>
         </>
     )

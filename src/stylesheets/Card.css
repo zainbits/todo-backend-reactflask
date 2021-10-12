@@ -1,0 +1,38 @@
+.block__card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 250px;
+    height: 250px;
+    background: var(--accent);
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+}
+
+.elem__hr {
+    width: 100%;
+    margin: 0;
+    color: yellow;
+}
+
+.block__actions {
+    margin-top: 12px;
+}
+
+.delete, .toggle {
+    border: none;
+    border-radius: 10px;
+    font-size: 0.8em;
+    height: 40px;
+    width: 80px;
+}
+
+.delete {
+    margin-right: 10px;
+    background: red;
+}
+.toggle {
+    margin-left: 10px;
+}

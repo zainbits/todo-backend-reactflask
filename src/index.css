@@ -1,3 +1,13 @@
+* {
+  border-style: border-box;
+}
+:root {
+  --page: #D0D0D0;
+  --accent: #6D9886;
+  --background: #282c28;
+  --white: white;
+  --green: green;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

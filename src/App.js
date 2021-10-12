@@ -2,17 +2,25 @@ import "./App.css";
 import { LoginPage } from "./Pages/Login";
 import { AllUsers } from "./Pages/AllUsers";
 import { Route, Switch } from "react-router-dom";
+import { Dashboard } from "./Pages/Dashboard";
+import React from "react";
+
+export const SimpleContext = React.createContext("I am in App component");
+console.log(SimpleContext)
 
 function App() {
+  let contextValue = "I am in App component";
+
   return (
-    <div class="overflow-hidden">
-      <div class="row">
-        <div class="col-md-4 LeftPane">
-          <div class="login-lp">
+    <div className="overflow-hidden">
+      <div className="row">
+        <div className="col-md-4 LeftPane">
+          <div className="login-lp">
             <p>TODO - Web App{`\n`}Made in react</p>
           </div>
         </div>
-        <div class="col-md-8 block--right">
+        <div className="col-md-8 block--right">
+          <SimpleContext.Provider value={contextValue}>
             <Switch>
               <Route exact path="/">
                 <LoginPage />
@@ -20,8 +28,12 @@ function App() {
               <Route path="/getallusers">
                 <AllUsers />
               </Route>
+              <Route path="/dashboard">
+                <Dashboard />
+              </Route>
             </Switch>
-          </div>
+          </SimpleContext.Provider>
+        </div>
       </div>
     </div>
   );

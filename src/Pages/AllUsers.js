@@ -27,9 +27,9 @@ const AllUsers = ()=> {
     
     return (
         <>
-            <TitleBar title="Dashboard" />
-            <MagicSlate>
-            <div class="darkback">
+            <TitleBar title="All Users" />
+            <MagicSlate className="block__slate">
+            <div className="darkback">
                 <h1>Hi There</h1>
                 {data.length !== 0 && data.map(item=>{
                     return (

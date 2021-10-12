@@ -1,24 +1,31 @@
 .in2 {
   border-radius: 0 0 40px 40px;
-  background: #d0d0d0;
+  background: var(--page);
   height: 88vh;
-  color: #282c28;
+  color: var(--background);
   margin: 3px 10px 6px 0;
 }
 
 .in2 {
   border-radius: 40px;
   background: #6d9886;
-  box-shadow: 0px 30px 110px 1px #282c28;
+  box-shadow: 0px 30px 110px 1px var(--background);
 }
 
 .in2 button {
   margin-top: 5px;
-  background: #282c28;
+  background: var(--background);
   border: none;
 }
 
 .in2 button:hover {
-  background: #d0d0d0;
+  background: var(--page);
   color: black;
+}
+
+
+@media screen and (max-width: 768px) {
+  .in2 {
+    background: var(--page);
+  }
 }
