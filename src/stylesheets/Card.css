@@ -22,7 +22,7 @@
     margin-top: 12px;
 }
 
-.delete, .toggle {
+.delete, .toggle, .view {
     border: none;
     border-radius: 10px;
     font-size: 0.8em;
@@ -36,4 +36,9 @@
 }
 .toggle {
     margin-left: 10px;
+}
+
+.view {
+    margin-top: 10px;
+    background: green;
 }

@@ -3,6 +3,7 @@ import { LoginPage } from "./Pages/Login";
 import { AllUsers } from "./Pages/AllUsers";
 import { Route, Switch } from "react-router-dom";
 import { Dashboard } from "./Pages/Dashboard";
+import { TodoView } from "./Pages/TodoView";
 import React from "react";
 
 export const SimpleContext = React.createContext("I am in App component");
@@ -24,11 +25,14 @@ function App() {
             <Route exact path="/">
               <LoginPage />
             </Route>
-            <Route path="/getallusers">
+            <Route exact path="/getallusers">
               <AllUsers />
             </Route>
-            <Route path="/dashboard">
+            <Route exact path="/dashboard">
               <Dashboard />
+            </Route>
+            <Route exact path="/todoone/:id">
+              <TodoView />
             </Route>
           </Switch>
         </SimpleContext.Provider>

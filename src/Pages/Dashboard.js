@@ -7,9 +7,15 @@ import { Card } from "../Components/Card";
 import "../App.css";
 import API from "../api";
 
-export const Dashboard = () => {
-  const token = localStorage.getItem("token");
+const token = localStorage.getItem("token");
 
+const opts = {
+  headers: {
+    Authorization: "Bearer " + token,
+  },
+};
+
+export const Dashboard = () => {
   const ACTION = {
     TOGGLE: "toggle",
     FETCH_TODO: "fetch_todos",
@@ -40,7 +46,7 @@ export const Dashboard = () => {
               });
             return { ...todo, complete: !todo.complete };
           } else {
-            return {...todo};
+            return { ...todo };
           }
         });
 
@@ -59,12 +65,6 @@ export const Dashboard = () => {
   const [todos, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
-    const opts = {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
-
     API.get("/todo", opts)
       .then((response) => {
         dispatch({ type: ACTION.FETCH_TODO, payload: { data: response.data } });
@@ -77,55 +77,63 @@ export const Dashboard = () => {
           history.push("/");
         }
       });
-  }, [history, token, ACTION.FETCH_TODO]);
+  }, [history, ACTION.FETCH_TODO]);
 
   const addTodo = () => {
     alert("pressed addTodo");
+  };
+
+  const openTodo = (id) => {
+    console.log(id);
+    history.push(`/todoone/${id}`);
   };
 
   return (
     <>
       <TitleBar title="Dashboard" />
       <MagicSlate className="block__slate--dashboard">
-          {todos.length !== 0 &&
-            todos.map((item) => {
-              return (
-                <Card key={item.id}>
-                  <h3>{item.text}</h3>
-                  <hr className="elem__hr" />
-                  {item.complete ? (
-                    <span>Completed</span>
-                  ) : (
-                    <span>Incomplete</span>
-                  )}
-                  <hr className="elem__hr" />
-                  <div className="block__actions">
-                    <button
-                      onClick={() => {
-                        dispatch({
-                          type: ACTION.DELETE_TODO,
-                          payload: { id: item.id },
-                        });
-                      }}
-                      className="delete"
-                    >
-                      Delete
-                    </button>
-                    <button
-                      onClick={() => {
-                        dispatch({
-                          type: ACTION.TOGGLE,
-                          payload: { id: item.id },
-                        });
-                      }}
-                      className="toggle"
-                    >
-                      Toggle
-                    </button>
-                  </div>
-                </Card>
-              );
-            })}
+        {todos.length !== 0 &&
+          todos.map((item) => {
+            return (
+              <Card key={item.id}>
+                <h3>{item.text}</h3>
+                <hr className="elem__hr" />
+                {item.complete ? (
+                  <span>Completed</span>
+                ) : (
+                  <span>Incomplete</span>
+                )}
+                <hr className="elem__hr" />
+                <button onClick={() => openTodo(item.id)} className="view">
+                  View
+                </button>
+                <div className="block__actions">
+                  <button
+                    onClick={() => {
+                      dispatch({
+                        type: ACTION.DELETE_TODO,
+                        payload: { id: item.id },
+                      });
+                    }}
+                    className="delete"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => {
+                      dispatch({
+                        type: ACTION.TOGGLE,
+                        payload: { id: item.id },
+                      });
+                    }}
+                    className="toggle"
+                  >
+                    Toggle
+                  </button>
+                </div>
+              </Card>
+            );
+          })}
         <button onClick={addTodo} className="block__add--bottomRight">
           +
         </button>
