@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/todo-frontend-reactflask/static/css/main.9c484435.chunk.css",
-    "main.js": "/todo-frontend-reactflask/static/js/main.429a8a0e.chunk.js",
-    "main.js.map": "/todo-frontend-reactflask/static/js/main.429a8a0e.chunk.js.map",
+    "main.js": "/todo-frontend-reactflask/static/js/main.97ee77dd.chunk.js",
+    "main.js.map": "/todo-frontend-reactflask/static/js/main.97ee77dd.chunk.js.map",
     "runtime-main.js": "/todo-frontend-reactflask/static/js/runtime-main.6e6216e3.js",
     "runtime-main.js.map": "/todo-frontend-reactflask/static/js/runtime-main.6e6216e3.js.map",
     "static/css/2.f2512455.chunk.css": "/todo-frontend-reactflask/static/css/2.f2512455.chunk.css",
@@ -18,6 +18,6 @@
     "static/css/2.f2512455.chunk.css",
     "static/js/2.5de6865b.chunk.js",
     "static/css/main.9c484435.chunk.css",
-    "static/js/main.429a8a0e.chunk.js"
+    "static/js/main.97ee77dd.chunk.js"
   ]
 }
