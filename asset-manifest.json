@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/todo-frontend-reactflask/static/css/main.fbbcbf83.chunk.css",
-    "main.js": "/todo-frontend-reactflask/static/js/main.863ba7ed.chunk.js",
-    "main.js.map": "/todo-frontend-reactflask/static/js/main.863ba7ed.chunk.js.map",
+    "main.css": "/todo-frontend-reactflask/static/css/main.29be07c0.chunk.css",
+    "main.js": "/todo-frontend-reactflask/static/js/main.134f1df6.chunk.js",
+    "main.js.map": "/todo-frontend-reactflask/static/js/main.134f1df6.chunk.js.map",
     "runtime-main.js": "/todo-frontend-reactflask/static/js/runtime-main.6e6216e3.js",
     "runtime-main.js.map": "/todo-frontend-reactflask/static/js/runtime-main.6e6216e3.js.map",
     "static/css/2.f2512455.chunk.css": "/todo-frontend-reactflask/static/css/2.f2512455.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.083c40f3.chunk.js.map": "/todo-frontend-reactflask/static/js/2.083c40f3.chunk.js.map",
     "index.html": "/todo-frontend-reactflask/index.html",
     "static/css/2.f2512455.chunk.css.map": "/todo-frontend-reactflask/static/css/2.f2512455.chunk.css.map",
-    "static/css/main.fbbcbf83.chunk.css.map": "/todo-frontend-reactflask/static/css/main.fbbcbf83.chunk.css.map",
+    "static/css/main.29be07c0.chunk.css.map": "/todo-frontend-reactflask/static/css/main.29be07c0.chunk.css.map",
     "static/js/2.083c40f3.chunk.js.LICENSE.txt": "/todo-frontend-reactflask/static/js/2.083c40f3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.6e6216e3.js",
     "static/css/2.f2512455.chunk.css",
     "static/js/2.083c40f3.chunk.js",
-    "static/css/main.fbbcbf83.chunk.css",
-    "static/js/main.863ba7ed.chunk.js"
+    "static/css/main.29be07c0.chunk.css",
+    "static/js/main.134f1df6.chunk.js"
   ]
 }
