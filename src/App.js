@@ -1,13 +1,15 @@
 import "./App.css";
+import "./stylesheets/LeftSide/NavBar.css";
 import { LoginPage } from "./Pages/Login";
 import { AllUsers } from "./Pages/AllUsers";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, NavLink } from "react-router-dom";
 import { Dashboard } from "./Pages/Dashboard";
 import { TodoView } from "./Pages/TodoView";
+import { About } from "./Pages/About";
 import React from "react";
 
-export const SimpleContext = React.createContext("I am in App component");
-console.log(SimpleContext);
+export const SimpleContext = React.createContext();
+export const ClassContext = React.createContext();
 
 function App() {
   let contextValue = "I am in App component";
@@ -15,7 +17,17 @@ function App() {
   return (
     <>
       <div className="LeftPane">
-        <div className="login-lp">
+        <div className="block__navbar">
+          <ul>
+            <NavLink activeClassName="custom" to="/">
+              <li>Home</li>
+            </NavLink>
+            <NavLink activeClassName="custom" to="/about">
+              <li>About</li>
+            </NavLink>
+          </ul>
+        </div>
+        <div className="block__navtitle">
           <p>TODO - Web App{`\n`}Made in react</p>
         </div>
       </div>
@@ -33,6 +45,13 @@ function App() {
             </Route>
             <Route exact path="/todoone/:id">
               <TodoView />
+            </Route>
+            <Route exact path="/about">
+              <ClassContext.Provider
+                value={"Provider & Consumer Context example"}
+              >
+                <About />
+              </ClassContext.Provider>
             </Route>
           </Switch>
         </SimpleContext.Provider>

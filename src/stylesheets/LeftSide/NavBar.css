@@ -1,0 +1,33 @@
+.block__navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+}
+
+.block__navbar ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.block__navbar ul li {
+    float: left;
+    margin: 5px;
+    height: 75px;
+    width: 100px;
+    border-radius: 15px;
+    background-color: var(--accent);
+    font-size: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom {
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+ .block__navbar{
+     display: none;
+ }
+}
