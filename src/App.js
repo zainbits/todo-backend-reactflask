@@ -48,7 +48,7 @@ function App() {
             </Route>
             <Route exact path="/about">
               <ClassContext.Provider
-                value={"Provider & Consumer Context example"}
+                value={"Provider & Consumer ContextAPI example"}
               >
                 <About />
               </ClassContext.Provider>
