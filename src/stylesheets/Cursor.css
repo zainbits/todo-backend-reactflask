@@ -1,0 +1,27 @@
+* {
+    cursor: none;
+  }
+
+#c-cursor {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0 0 12px 6px var(--background), 0 0 12px 6px var(--page);
+    /* background: var(--background); */
+    z-index: 2;
+    pointer-events: none;
+    /* border: 2px solid var(--page); */
+    border-radius: 50%;
+    animation: animcur 0.5s infinite alternate;
+  }
+  
+  @keyframes animcur {
+    from {
+      /* box-shadow: 0 0 12px 6px var(--background), 0 0 12px 6px var(--page); */
+      transform: scale(1);
+    }
+    to {
+      /* box-shadow: 0 0 12px 6px var(--background), 0 0 12px 6px var(--page); */
+      transform: scale(1.4);
+    }
+  }

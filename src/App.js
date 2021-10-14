@@ -6,6 +6,7 @@ import { Route, Switch, NavLink } from "react-router-dom";
 import { Dashboard } from "./Pages/Dashboard";
 import { TodoView } from "./Pages/TodoView";
 import { About } from "./Pages/About";
+import { Cursor } from "./Components/Cursor"; 
 import React from "react";
 
 export const SimpleContext = React.createContext();
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <>
+      <Cursor />
       <div className="LeftPane">
         <div className="block__navbar">
           <ul>
