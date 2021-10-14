@@ -14,7 +14,7 @@ export const TitleBar = ({ title }) => {
     <div className="block__title">
       <div>{title}</div>
       <div className="block__title-buttons">
-        <button onClick={popTrigger} className="button__logout">
+        <button onClick={popTrigger} className="button__logout no-cursor">
           Logout
         </button>
       </div>

@@ -23,6 +23,10 @@
   background: var(--background);
 }
 
+.no-cursor:hover {
+  cursor: none;
+}
+
 @media screen and (max-width: 768px) {
   #root {
     flex-direction: column;

@@ -82,7 +82,7 @@ export const LoginPage = () => {
                     </label>
                   </div>
                   <div style={{color: '#DF362D'}}>{loginError}</div>
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn btn-primary no-cursor">
                     Login
                   </button>
                 </form>

@@ -13,8 +13,8 @@ export const Popup = ({ trigger, setPop, children }) => {
     <div className="block__popup">
       {children}
       <div>
-          <button className="btn btn-danger" onClick={Logout}>Logout</button>
-          <button className="btn btn-primary"onClick={() => setPop(false)}>Close</button>
+          <button className="btn btn-danger mx-2 no-cursor" onClick={Logout}>Logout</button>
+          <button className="btn btn-primary mx-2 no-cursor"onClick={() => setPop(false)}>Close</button>
       </div>
     </div>
   ) : (
