@@ -1,8 +1,10 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { TitleBar } from "../Components/RightTitleBar";
 import { MagicSlate } from "../Components/MagicSlate";
 import { Card } from "../Components/Card";
+import { Popup } from "../Components/Popup";
+import { AddTodoPage } from "./AddTodo";
 
 import "../App.css";
 import API from "../api";
@@ -16,6 +18,9 @@ const opts = {
 };
 
 export const Dashboard = () => {
+
+  const [pop, setPop] = useState(false)
+
   const ACTION = {
     TOGGLE: "toggle",
     FETCH_TODO: "fetch_todos",
@@ -64,7 +69,7 @@ export const Dashboard = () => {
   const history = useHistory();
   const [todos, dispatch] = useReducer(reducer, []);
 
-  useEffect(() => {
+  const fetchTodoAPI = () => {
     API.get("/todo", opts)
       .then((response) => {
         dispatch({ type: ACTION.FETCH_TODO, payload: { data: response.data } });
@@ -77,11 +82,12 @@ export const Dashboard = () => {
           history.push("/");
         }
       });
+  }
+
+  useEffect(() => {
+    fetchTodoAPI()
   }, [history, ACTION.FETCH_TODO]);
 
-  const addTodo = () => {
-    alert("pressed addTodo");
-  };
 
   const openTodo = (id) => {
     console.log(id);
@@ -134,9 +140,12 @@ export const Dashboard = () => {
               </Card>
             );
           })}
-        <button onClick={addTodo} className="block__add--bottomRight">
+        <button onClick={()=>setPop(true)} className="block__add--bottomRight">
           +
         </button>
+        <Popup trigger={pop}>
+         <AddTodoPage setPop={setPop} reload={fetchTodoAPI}/>
+      </Popup>
       </MagicSlate>
     </>
   );
