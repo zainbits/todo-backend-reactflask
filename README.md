@@ -1,7 +1,3 @@
-# Test Login Credentials
-username: test\
-password: 12345
-
 # App URL
 https://zainbits.github.io/todo-frontend-reactflask/
 
